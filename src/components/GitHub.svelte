@@ -61,3 +61,9 @@
         {/each}
     </tbody>
 </Table>
+
+<style>
+    th {
+        color: #F2F1EE;
+    }
+</style>
