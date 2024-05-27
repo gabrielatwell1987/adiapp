@@ -29,8 +29,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-/*   background-color: #C9C6B6; */
-  background: url('https://www.loginradius.com/blog/static/524ee49cabd1aaadf454989f10cb1e83/03979/GitHub_coverImage.png') no-repeat center center/cover;
+  background-color: #ccc;
+/*   background: url('https://www.loginradius.com/blog/static/524ee49cabd1aaadf454989f10cb1e83/03979/GitHub_coverImage.png') no-repeat center center/cover; */
 }
 
 h1 {
@@ -61,6 +61,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-block: 1rem;
 }
 button:hover {
   border-color: #646cff;
