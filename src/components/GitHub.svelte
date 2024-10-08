@@ -30,6 +30,8 @@
     };
 </script>
 
+<img src="github.svg" alt="">
+
 <Form on:submit={handleSubmit}>
     <FormGroup floating label="Search">
         <Input type="text" bind:value={searchTerm} />
@@ -61,3 +63,16 @@
         {/each}
     </tbody>
 </Table>
+
+<style>
+    img {
+        width: 50%;
+        margin-inline: auto;
+        object-fit: cover;
+        margin-bottom: 15%;
+    }
+
+    th {
+        letter-spacing: 3px;
+    }
+</style>
