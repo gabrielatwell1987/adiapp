@@ -57,7 +57,7 @@
             <tr>
                 <th scope="row">{user.id}</th>
                 <td><img alt={user.login} src={user.avatar_url} width="75" height="75"></td>
-                <td>{user.login}</td>
+                <td><b>{user.login}</b></td>
                 <td><a href="{user.html_url}">{user.html_url}</a></td>
             </tr>
         {/each}
