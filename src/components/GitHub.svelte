@@ -107,7 +107,7 @@
         .content {
             overflow-x: auto;
             width: 99%;
-            scale: 1;
+            scale: .8;
             margin-inline: auto;
             /* margin-right: 10%; */
         }
@@ -116,13 +116,17 @@
             margin-inline: auto;
         }
 
+        .content:hover {
+            margin-right: 17%;
+        }
+
         td {
             margin: 0;
             padding: 0;
         }
 
         input {
-            width: 100%;
+            width: 99%;
         }
     }
 </style>
