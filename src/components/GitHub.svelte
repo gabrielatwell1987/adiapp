@@ -53,7 +53,9 @@
                 <tbody>
                     {#each users as user}
                         <tr>
-                            <td><img alt={user.login} src={user.avatar_url} width="75" height="75"></td>
+                            <td>
+                                <img alt={user.login} src={user.avatar_url} width="75" height="75" class="avatar">
+                            </td>
                             <td><b>{user.login}</b></td>
                             <td><a href="{user.html_url}">{user.html_url}</a></td>
                         </tr>
@@ -70,6 +72,14 @@
         margin-inline: auto;
         object-fit: cover;
         margin-bottom: 15%;
+        border-radius: 5px;
+    }
+
+    .avatar {
+        width: 100%;
+        margin-inline: auto;
+        object-fit: cover;
+        /* margin-bottom: 15%; */
     }
     
     input {
