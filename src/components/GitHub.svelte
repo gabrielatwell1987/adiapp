@@ -1,11 +1,7 @@
 <script>
-  // @ts-nocheck
-
   import { onMount } from "svelte";
   import axios from "axios";
   import { Spinner } from "sveltestrap";
-
-  const table = document.querySelector("tr");
 
   let users = [];
   let searchTerm = "";
@@ -21,7 +17,7 @@
     } catch (e) {}
   };
 
-  onMount(getData());
+  onMount(() => getData());
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +32,6 @@
 
     <form on:submit={handleSubmit}>
       <input type="text" bind:value={searchTerm} placeholder="search" />
-
       <button type="submit">Submit</button>
     </form>
 
@@ -44,38 +39,30 @@
       <Spinner color="primary" />
     {/if}
 
-    <div class="table">
-      <table>
-        <tbody>
-          {#each users as user}
-            <tr>
-              <td>
-                <img
-                  alt={user.login}
-                  src={user.avatar_url}
-                  width="75"
-                  height="75"
-                  class="avatar"
-                />
-              </td>
-
-              <td><b>{user.login}</b></td>
-
-              <td><a href={user.html_url}>{user.html_url}</a></td>
-            </tr>
-          {/each}
-        </tbody>
-      </table>
+    <div class="grid">
+      {#each users as user}
+        <div class="grid-item">
+          <img
+            alt={user.login}
+            src={user.avatar_url}
+            width="75"
+            height="75"
+            class="avatar"
+          />
+          <b>{user.login}</b>
+          <a href={user.html_url} target="_blank">{user.html_url}</a>
+        </div>
+      {/each}
     </div>
   </div>
 </main>
 
 <style>
-  :global(body) {
+  :global(html, body) {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
     background-color: #f5f5f5;
   }
@@ -83,9 +70,10 @@
   main {
     margin: 0 auto;
     width: 100%;
+    height: 100%;
     max-width: 600px;
     text-align: center;
-    background-color: #fff;
+    background-color: #f5f5f5;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -94,41 +82,54 @@
   .content {
     margin: 0 auto;
     width: 100%;
-    max-width: 224px;
-    background-color: #fff;
+    max-width: 500px;
+    background-color: #f5f5f5;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      margin-bottom: 2rem;
+    }
   }
 
   form {
     margin-bottom: 1rem;
   }
 
-  .table {
-    overflow-x: auto;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
     margin: 1rem auto;
-    max-width: 100%;
-    background-color: #fff;
+    justify-content: center;
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    margin: 0 auto;
+  .grid-item {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
   }
 
-  td {
-    padding: 0.5rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    word-wrap: break-word;
-  }
-
-  img {
+  .grid-item img {
     display: block;
-    margin: 0 auto 2rem;
-    max-width: 100%;
-    height: auto;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+  }
+
+  .grid-item a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
+
+  .grid-item a:hover {
+    text-decoration: underline;
   }
 
   input {
@@ -166,14 +167,30 @@
     .content {
       scale: 0.8;
       overflow-x: hidden;
+      margin-inline: auto;
+      width: 70vw;
+      height: 100vh;
     }
 
-    table {
-      font-size: 0.9rem;
+    img {
+      width: 75%;
+    }
+
+    .grid {
+      gap: 0.5rem;
+    }
+
+    .grid-item {
+      padding: 0.75rem;
     }
 
     input {
       width: calc(100% - 2rem);
+    }
+
+    .avatar {
+      width: 5em;
+      height: 5em;
     }
   }
 </style>

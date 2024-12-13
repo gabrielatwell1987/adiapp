@@ -9,6 +9,3 @@
 <main>
   <GitHub />
 </main>
-
-<style>
-</style>
