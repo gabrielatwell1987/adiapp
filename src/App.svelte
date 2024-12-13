@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>Github API</title>
+  <title>Search your github friends 🙃</title>
 </svelte:head>
 
 <main>
