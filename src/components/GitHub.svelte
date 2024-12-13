@@ -14,6 +14,11 @@
       );
       users = res.data.items;
       isLoading = false;
+
+      const grid = document.querySelector(".grid");
+      if (grid) {
+        grid.scrollTop = 0;
+      }
     } catch (e) {}
   };
 
@@ -32,6 +37,7 @@
 
     <form on:submit={handleSubmit}>
       <input type="text" bind:value={searchTerm} placeholder="search" />
+
       <button type="submit">Submit</button>
     </form>
 
@@ -49,7 +55,9 @@
             height="75"
             class="avatar"
           />
+
           <b>{user.login}</b>
+
           <a href={user.html_url} target="_blank">{user.html_url}</a>
         </div>
       {/each}
@@ -102,9 +110,15 @@
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    place-items: center;
     gap: 1rem;
     margin: 1rem auto;
     justify-content: center;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding: 2rem;
+    background: #f5f5f5;
+    border-radius: 8px;
   }
 
   .grid-item {
@@ -113,6 +127,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
+    width: fit-content;
   }
 
   .grid-item img {
@@ -163,6 +178,16 @@
     color: #242424;
   }
 
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #242424;
+    /* text-decoration: underline; */
+  }
+
   @media (max-width: 500px) {
     .content {
       scale: 0.8;
@@ -178,6 +203,7 @@
 
     .grid {
       gap: 0.5rem;
+      min-height: calc(100vh - 75px);
     }
 
     .grid-item {
