@@ -16,10 +16,8 @@
       isLoading = false;
 
       const grid = document.querySelector(".grid");
-      const img = document.querySelector("img");
       if (grid) {
         grid.scrollTop = 0;
-        img.scrollTop = 0;
       }
     } catch (e) {}
   };
