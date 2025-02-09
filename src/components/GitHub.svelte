@@ -33,7 +33,9 @@
 
 <main>
   <div class="content">
-    <img src="github.svg" alt="" />
+    <a href="https://github.com/gabrielatwell1987/github">
+      <img src="github.svg" alt="" />
+    </a>
 
     <form on:submit={handleSubmit}>
       <input type="text" bind:value={searchTerm} placeholder="search" />
