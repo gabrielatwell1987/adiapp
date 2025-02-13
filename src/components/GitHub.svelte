@@ -78,10 +78,10 @@
   }
 
   main {
-    margin: 0 auto;
+    margin-inline: auto;
     width: 100%;
     height: 100%;
-    max-width: 600px;
+    max-width: 1200px;
     text-align: center;
     background-color: #f5f5f5;
     padding: 2rem 1rem;
@@ -97,8 +97,8 @@
 
   .content {
     margin: 0 auto;
-    width: 100%;
-    max-width: 500px;
+    width: 35vw;
+    max-width: 1200px;
     background-color: #f5f5f5;
     overflow-x: hidden;
     display: flex;
@@ -120,6 +120,8 @@
 
   form {
     margin-bottom: 1rem;
+    width: 100%;
+    max-width: 1200px;
   }
 
   .grid {
@@ -143,41 +145,46 @@
     border-radius: 8px;
     text-align: center;
     width: fit-content;
-  }
 
-  .grid-item img {
-    display: block;
-    margin: 0 auto 1rem;
-    border-radius: 50%;
-  }
+    & img {
+      display: block;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+    }
 
-  .grid-item a {
-    display: block;
-    color: #007bff;
-    text-decoration: none;
-    margin-top: 0.5rem;
-  }
+    & a {
+      display: block;
+      color: #007bff;
+      text-decoration: none;
+      margin-top: 0.5rem;
 
-  .grid-item a:hover {
-    border-bottom: 1px solid #242424;
+      &:hover {
+        border-bottom: 1px solid #242424;
+      }
+    }
   }
 
   input {
-    width: calc(100% - 2rem);
-    max-width: 400px;
-    padding: 0.75rem;
-    margin: 0 auto 1rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0.5rem;
+    margin-inline: auto;
     display: block;
     border-radius: 15px;
-    border: 3px solid #222;
+    border: 2px solid #222;
     background-color: #fff;
     color: #222;
-  }
+    text-align: center;
 
-  input::placeholder {
-    color: #222;
-    font-weight: 600;
-    letter-spacing: 3px;
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #222;
+      font-weight: 600;
+      letter-spacing: 3px;
+    }
   }
 
   button {
@@ -187,25 +194,24 @@
     font-weight: 600;
     letter-spacing: 3px;
     padding: 0.5rem 1rem;
-  }
 
-  button:hover {
-    background-color: #fff;
-    color: #242424;
+    &:hover {
+      background-color: #fff;
+      color: #242424;
+    }
   }
 
   a {
     color: #007bff;
     text-decoration: none;
-  }
 
-  a:hover {
-    color: #242424;
+    &:hover {
+      color: #242424;
+    }
   }
 
   @media (max-width: 500px) {
     .content {
-      scale: 0.8;
       overflow-x: hidden;
       margin-inline: auto;
       width: 70vw;
@@ -220,7 +226,6 @@
 
     .grid {
       gap: 0.5rem;
-      /* min-height: calc(100vh - 350px); */
       min-height: fit-content;
     }
 
@@ -230,6 +235,7 @@
 
     input {
       width: 100%;
+      max-width: none;
     }
 
     .avatar {
